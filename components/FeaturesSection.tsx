@@ -67,7 +67,7 @@ const FeaturesSection: React.FC = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="p-8 text-center rounded-2xl bg-slate-50 transition-all duration-300 ease-in-out hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] group"
+              className="p-8 text-center rounded-2xl bg-slate-50 cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] group"
             >
               {/* Icon Container */}
               <div className="inline-flex items-center justify-center p-4 rounded-full bg-teal-600/10 text-teal-600 mb-6 group-hover:scale-110 transition-transform duration-300">

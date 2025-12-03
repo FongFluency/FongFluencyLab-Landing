@@ -1,4 +1,5 @@
 import React from "react";
+import { ROUTES } from "@/constants";
 
 const CheckIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-teal-600 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
@@ -126,9 +127,10 @@ const PricingSection: React.FC = () => {
                 </ul>
 
                 {/* CTA Button */}
-                <button
+                <a
+                  href={ROUTES.REGISTER}
                   className={`
-                    w-full py-3 rounded-full font-bold text-base transition-all duration-300
+                    block w-full py-3 rounded-full font-bold text-base text-center transition-all duration-300 cursor-pointer
                     ${plan.best
                       ? "bg-teal-600 text-white shadow-lg shadow-teal-600/30 hover:bg-teal-700 hover:scale-105"
                       : "border-2 border-teal-600 text-teal-600 hover:bg-teal-50"
@@ -136,7 +138,7 @@ const PricingSection: React.FC = () => {
                   `}
                 >
                   Đăng ký ngay
-                </button>
+                </a>
               </div>
             </div>
           ))}
