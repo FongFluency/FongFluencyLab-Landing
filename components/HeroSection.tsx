@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import { ROUTES } from "@/constants";
 
 const phrases = ["Học tự nhiên.", "Nói tự tin.", "Luyện tập hiệu quả."];
 
@@ -60,18 +60,18 @@ const HeroSection: React.FC = () => {
             </p>
             
             <div className="flex gap-4 flex-wrap">
-              <Link
-                href="/register"
+              <a
+                href={ROUTES.REGISTER}
                 className="inline-flex items-center justify-center bg-teal-600 text-white rounded-full px-8 py-3 text-lg font-medium transition-all duration-300 hover:bg-teal-700 hover:scale-105 shadow-lg shadow-teal-600/30"
               >
                 Bắt đầu ngay
-              </Link>
-              <Link
-                href="/login"
+              </a>
+              <a
+                href={ROUTES.LOGIN}
                 className="inline-flex items-center justify-center border-2 border-teal-600 text-teal-600 rounded-full px-8 py-3 text-lg font-medium transition-all duration-300 hover:bg-teal-50 hover:scale-105"
               >
                 Đăng nhập
-              </Link>
+              </a>
             </div>
           </div>
           
