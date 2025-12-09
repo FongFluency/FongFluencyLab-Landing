@@ -9,8 +9,17 @@ const CheckIcon = () => (
 
 const pricingData = [
   {
+    duration: "1 ngày",
+    price: "30.000đ",
+    originalPrice: null,
+    discount: null,
+    save: null,
+    best: false,
+    features: ["Truy cập toàn bộ bài học", "Luyện tập trong 24h", "Hỗ trợ cơ bản"],
+  },
+  {
     duration: "1 tháng",
-    price: "219.000đ",
+    price: "189.000đ",
     originalPrice: null,
     discount: null,
     save: null,
@@ -19,28 +28,28 @@ const pricingData = [
   },
   {
     duration: "3 tháng",
-    price: "589.000đ",
-    originalPrice: "657.000đ",
+    price: "510.000đ",
+    originalPrice: "567.000đ",
     discount: "10%",
-    save: null,
+    save: "57.000đ",
     best: false,
     features: ["Tiết kiệm 10%", "Truy cập toàn bộ bài học", "Luyện tập không giới hạn"],
   },
   {
     duration: "6 tháng",
-    price: "999.000đ",
-    originalPrice: "1.314.000đ",
+    price: "860.000đ",
+    originalPrice: "1.134.000đ",
     discount: "24%",
-    save: "315.000đ",
+    save: "274.000đ",
     best: false,
     features: ["Tiết kiệm 24%", "Truy cập toàn bộ bài học", "Luyện tập không giới hạn", "Hỗ trợ ưu tiên"],
   },
   {
     duration: "12 tháng",
-    price: "1.599.000đ",
-    originalPrice: "2.628.000đ",
+    price: "1.250.000đ",
+    originalPrice: "2.268.000đ",
     discount: "45%",
-    save: "1.029.000đ",
+    save: "1.018.000đ",
     best: true,
     features: [
       "Tiết kiệm 45%",
@@ -67,7 +76,7 @@ const PricingSection: React.FC = () => {
         </div>
 
         {/* Pricing Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-end">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-end">
           {pricingData.map((plan, index) => (
             <div
               key={index}
