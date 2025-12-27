@@ -18,6 +18,77 @@ const CheckIcon = () => (
   </svg>
 );
 
+const pricingData = [
+  {
+    duration: "1 ngày",
+    price: "30.000đ",
+    originalPrice: null,
+    discount: null,
+    save: null,
+    best: false,
+    features: [
+      "Truy cập toàn bộ bài học",
+      "Luyện tập trong 24h",
+      "Hỗ trợ cơ bản",
+    ],
+  },
+  {
+    duration: "1 tháng",
+    price: "189.000đ",
+    originalPrice: null,
+    discount: null,
+    save: null,
+    best: false,
+    features: [
+      "Truy cập toàn bộ bài học",
+      "Luyện tập không giới hạn",
+      "Hỗ trợ cơ bản",
+    ],
+  },
+  {
+    duration: "3 tháng",
+    price: "510.000đ",
+    originalPrice: "567.000đ",
+    discount: "10%",
+    save: "57.000đ",
+    best: false,
+    features: [
+      "Tiết kiệm 10%",
+      "Truy cập toàn bộ bài học",
+      "Luyện tập không giới hạn",
+    ],
+  },
+  {
+    duration: "6 tháng",
+    price: "860.000đ",
+    originalPrice: "1.134.000đ",
+    discount: "24%",
+    save: "274.000đ",
+    best: false,
+    features: [
+      "Tiết kiệm 24%",
+      "Truy cập toàn bộ bài học",
+      "Luyện tập không giới hạn",
+      "Hỗ trợ ưu tiên",
+    ],
+  },
+  {
+    duration: "12 tháng",
+    price: "1.250.000đ",
+    originalPrice: "2.268.000đ",
+    discount: "45%",
+    save: "1.018.000đ",
+    best: true,
+    features: [
+      "Tiết kiệm 45%",
+      "Truy cập toàn bộ bài học",
+      "Luyện tập không giới hạn",
+      "Hỗ trợ VIP 24/7",
+      "Quyền lợi đặc biệt",
+    ],
+  },
+];
+
 interface Package {
   _id: string;
   duration: number;
@@ -41,7 +112,7 @@ const PricingSection: React.FC = () => {
     const fetchPackages = async () => {
       try {
         const apiUrl =
-          process.env.NEXT_PUBLIC_API_URL || "https://api.fongfluency.com";
+          process.env.NEXT_PUBLIC_API_URL || "https://api.fongfluency.com/api";
         const response = await fetch(`${apiUrl}/package`);
         const result = await response.json();
 
@@ -114,97 +185,83 @@ const PricingSection: React.FC = () => {
         </div>
 
         {/* Pricing Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 items-end">
-          {packages.map((pkg) => {
-            const isBest = pkg.isBest;
-            const saveAmount = pkg.originalPrice
-              ? pkg.originalPrice - pkg.price
-              : 0;
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-end">
+          {pricingData.map((plan, index) => (
+            <div
+              key={index}
+              className={`
+                relative rounded-2xl bg-white transition-all duration-300
+                ${
+                  plan.best
+                    ? "border-2 border-teal-600 shadow-xl scale-105 z-10"
+                    : "border border-slate-200 shadow-sm hover:-translate-y-2 hover:shadow-lg"
+                }
+              `}
+            >
+              {/* Best Badge */}
+              {plan.best && (
+                <div className="absolute top-0 left-0 right-0 bg-teal-600 text-white text-center py-1.5 font-bold uppercase text-sm rounded-t-xl">
+                  Phổ biến nhất
+                </div>
+              )}
 
-            return (
-              <div
-                key={pkg._id}
-                className={`
-                  relative rounded-2xl bg-white transition-all duration-300
-                  ${
-                    isBest
-                      ? "border-2 border-teal-600 shadow-xl scale-105 z-10"
-                      : "border border-slate-200 shadow-sm hover:-translate-y-2 hover:shadow-lg"
-                  }
-                `}
-              >
-                {/* Best Badge */}
-                {isBest && (
-                  <div className="absolute top-0 left-0 right-0 bg-teal-600 text-white text-center py-1.5 font-bold uppercase text-sm rounded-t-xl">
-                    Phổ biến nhất
+              <div className={`p-8 ${plan.best ? "pt-12" : ""}`}>
+                {/* Duration */}
+                <h3 className="text-2xl font-bold text-slate-700 text-center mb-4">
+                  {plan.duration}
+                </h3>
+
+                {/* Pricing */}
+                <div className="text-center mb-4">
+                  {plan.originalPrice && (
+                    <p className="text-sm text-slate-400 line-through mb-1">
+                      {plan.originalPrice}
+                    </p>
+                  )}
+                  <p className="text-3xl font-extrabold text-teal-600">
+                    {plan.price}
+                  </p>
+                </div>
+
+                {/* Save Badge */}
+                {plan.save && (
+                  <div className="text-center mb-6">
+                    <span className="inline-block px-3 py-1 text-sm font-bold bg-red-50 text-red-500 rounded-full">
+                      Tiết kiệm {plan.save}
+                    </span>
                   </div>
                 )}
 
-                <div className={`p-8 ${isBest ? "pt-12" : ""}`}>
-                  {/* Duration */}
-                  <h3 className="text-2xl font-bold text-slate-700 text-center mb-4">
-                    {pkg.duration}{" "}
-                    {pkg.unit === "day"
-                      ? "ngày"
-                      : pkg.unit === "month"
-                      ? "tháng"
-                      : "năm"}
-                  </h3>
+                {/* Divider */}
+                <hr className="border-slate-200 my-6" />
 
-                  {/* Pricing */}
-                  <div className="text-center mb-4">
-                    {pkg.originalPrice ? (
-                      <p className="text-sm text-slate-400 line-through mb-1">
-                        {formatPrice(pkg.originalPrice)}
-                      </p>
-                    ) : null}
-                    <p className="text-3xl font-extrabold text-teal-600">
-                      {formatPrice(pkg.price)}
-                    </p>
-                  </div>
+                {/* Features */}
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center gap-3">
+                      <CheckIcon />
+                      <span className="text-sm text-slate-500">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
 
-                  {/* Save Badge */}
-                  {saveAmount > 0 && (
-                    <div className="text-center mb-6">
-                      <span className="inline-block px-3 py-1 text-sm font-bold bg-red-50 text-red-500 rounded-full">
-                        Tiết kiệm {formatPrice(saveAmount)}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Divider */}
-                  <hr className="border-slate-200 my-6" />
-
-                  {/* Features */}
-                  <ul className="space-y-3 mb-8">
-                    {pkg.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-3">
-                        <CheckIcon />
-                        <span className="text-sm text-slate-500">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA Button */}
-                  <a
-                    href={`${ROUTES.REGISTER}?packageId=${pkg._id}`}
-                    className={`
-                      block w-full py-3 rounded-full font-bold text-base text-center transition-all duration-300 cursor-pointer
-                      ${
-                        isBest
-                          ? "bg-teal-600 text-white shadow-lg shadow-teal-600/30 hover:bg-teal-700 hover:scale-105"
-                          : "border-2 border-teal-600 text-teal-600 hover:bg-teal-50"
-                      }
-                    `}
-                  >
-                    Đăng ký ngay
-                  </a>
-                </div>
+                {/* CTA Button */}
+                <a
+                  href={ROUTES.REGISTER}
+                  className={`
+                    block w-full py-3 rounded-full font-bold text-base text-center transition-all duration-300 cursor-pointer
+                    ${
+                      plan.best
+                        ? "bg-teal-600 text-white shadow-lg shadow-teal-600/30 hover:bg-teal-700 hover:scale-105"
+                        : "border-2 border-teal-600 text-teal-600 hover:bg-teal-50"
+                    }
+                  `}
+                >
+                  Đăng ký ngay
+                </a>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>
