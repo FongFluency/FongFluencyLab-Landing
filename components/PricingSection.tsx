@@ -140,26 +140,26 @@ const PricingSection: React.FC = () => {
     return new Intl.NumberFormat("vi-VN").format(price) + "đ";
   };
 
-  if (loading) {
-    return (
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4 max-w-6xl text-center">
-          <div className="animate-pulse flex flex-col items-center">
-            <div className="h-10 w-48 bg-slate-200 rounded mb-4"></div>
-            <div className="h-6 w-64 bg-slate-200 rounded mb-16"></div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-              {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="h-96 bg-white rounded-2xl border border-slate-200 shadow-sm"
-                ></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <section className="py-20 bg-slate-50">
+  //       <div className="container mx-auto px-4 max-w-6xl text-center">
+  //         <div className="animate-pulse flex flex-col items-center">
+  //           <div className="h-10 w-48 bg-slate-200 rounded mb-4"></div>
+  //           <div className="h-6 w-64 bg-slate-200 rounded mb-16"></div>
+  //           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+  //             {[1, 2, 3, 4].map((i) => (
+  //               <div
+  //                 key={i}
+  //                 className="h-96 bg-white rounded-2xl border border-slate-200 shadow-sm"
+  //               ></div>
+  //             ))}
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </section>
+  //   );
+  // }
 
   // if (error) {
   //   return (
