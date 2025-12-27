@@ -108,33 +108,33 @@ const PricingSection: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchPackages = async () => {
-      try {
-        const apiUrl =
-          process.env.NEXT_PUBLIC_API_URL || "https://api.fongfluency.com/api";
-        const response = await fetch(`${apiUrl}/package`);
-        const result = await response.json();
+  // useEffect(() => {
+  //   const fetchPackages = async () => {
+  //     try {
+  //       const apiUrl =
+  //         process.env.NEXT_PUBLIC_API_URL || "https://api.fongfluency.com/api";
+  //       const response = await fetch(`${apiUrl}/package`);
+  //       const result = await response.json();
 
-        if (result.success && Array.isArray(result.data)) {
-          // Sort by display order
-          const sortedPackages = result.data.sort(
-            (a: Package, b: Package) => a.displayOrder - b.displayOrder
-          );
-          setPackages(sortedPackages);
-        } else {
-          setError("Không thể tải danh sách gói cước.");
-        }
-      } catch (err) {
-        console.error("Error fetching packages:", err);
-        setError("Đã có lỗi xảy ra khi kết nối máy chủ.");
-      } finally {
-        setLoading(false);
-      }
-    };
+  //       if (result.success && Array.isArray(result.data)) {
+  //         // Sort by display order
+  //         const sortedPackages = result.data.sort(
+  //           (a: Package, b: Package) => a.displayOrder - b.displayOrder
+  //         );
+  //         setPackages(sortedPackages);
+  //       } else {
+  //         setError("Không thể tải danh sách gói cước.");
+  //       }
+  //     } catch (err) {
+  //       console.error("Error fetching packages:", err);
+  //       setError("Đã có lỗi xảy ra khi kết nối máy chủ.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchPackages();
-  }, []);
+  //   fetchPackages();
+  // }, []);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("vi-VN").format(price) + "đ";
@@ -161,15 +161,15 @@ const PricingSection: React.FC = () => {
     );
   }
 
-  if (error) {
-    return (
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4 max-w-6xl text-center">
-          <p className="text-red-500 font-medium">{error}</p>
-        </div>
-      </section>
-    );
-  }
+  // if (error) {
+  //   return (
+  //     <section className="py-20 bg-slate-50">
+  //       <div className="container mx-auto px-4 max-w-6xl text-center">
+  //         <p className="text-red-500 font-medium">{error}</p>
+  //       </div>
+  //     </section>
+  //   );
+  // }
 
   return (
     <section id="pricing" className="py-20 bg-slate-50">
