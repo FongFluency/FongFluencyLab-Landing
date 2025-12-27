@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { ROUTES } from "@/constants";
 
 const phrases = ["Học tự nhiên.", "Nói tự tin.", "Luyện tập hiệu quả."];
@@ -12,7 +13,7 @@ const HeroSection: React.FC = () => {
 
   useEffect(() => {
     const phrase = phrases[currentPhrase];
-    
+
     if (isTyping) {
       if (displayText.length < phrase.length) {
         const timeout = setTimeout(() => {
@@ -30,8 +31,11 @@ const HeroSection: React.FC = () => {
         }, 30);
         return () => clearTimeout(timeout);
       } else {
-        setCurrentPhrase((prev) => (prev + 1) % phrases.length);
-        setIsTyping(true);
+        const timeout = setTimeout(() => {
+          setCurrentPhrase((prev) => (prev + 1) % phrases.length);
+          setIsTyping(true);
+        }, 0);
+        return () => clearTimeout(timeout);
       }
     }
   }, [displayText, isTyping, currentPhrase]);
@@ -43,25 +47,26 @@ const HeroSection: React.FC = () => {
           {/* Left Content */}
           <div>
             <h1 className="font-extrabold text-slate-700 mb-4 text-4xl md:text-5xl lg:text-[3.5rem] leading-tight">
-              Chinh phục tiếng Anh cùng
+              Đột phá tiếng Anh cùng
               <span className="text-teal-600 block">FongFluency</span>
             </h1>
-            
+
             <div className="mb-6 h-[60px] flex items-center">
               <span className="text-2xl text-slate-600 inline-block">
                 {displayText}
                 <span className="animate-pulse">|</span>
               </span>
             </div>
-            
+
             <p className="text-lg text-slate-500 mb-8 max-w-[600px] leading-relaxed">
-              Trải nghiệm phương pháp học tiếng Anh hoàn toàn mới. Bài học tương tác, phản hồi AI và cộng đồng hỗ trợ
-              giúp bạn đạt được sự trôi chảy.
+              Khai phóng tiềm năng ngôn ngữ với FongFluency. Phương pháp học
+              tương tác kết hợp AI phân tích chuyên sâu giúp bạn đạt được sự
+              trôi chảy vượt bậc một cách tự nhiên.
             </p>
-            
+
             <div className="flex gap-4 flex-wrap">
               <a
-                href={ROUTES.REGISTER}
+                href="#pricing"
                 className="inline-flex items-center justify-center bg-teal-600 text-white rounded-full px-8 py-3 text-lg font-medium transition-all duration-300 hover:bg-teal-700 hover:scale-105 shadow-lg shadow-teal-600/30"
               >
                 Bắt đầu ngay
@@ -74,13 +79,16 @@ const HeroSection: React.FC = () => {
               </a>
             </div>
           </div>
-          
+
           {/* Right Image */}
           <div className="hidden md:block">
-            <img
+            <Image
               src="/hero_illustration.png"
-              alt="Learning"
-              className="w-full max-w-[600px] h-auto rounded-3xl shadow-2xl transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)]"
+              alt="Học tiếng Anh với công nghệ AI vượt trội"
+              width={600}
+              height={600}
+              className="w-full max-w-[600px] h-auto rounded-3xl shadow-2xl transition-transform duration-500 hover:scale-[1.05] hover:shadow-[0_40px_80px_rgba(0,0,0,0.25)]"
+              priority
             />
           </div>
         </div>
