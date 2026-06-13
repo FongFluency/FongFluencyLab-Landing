@@ -79,9 +79,9 @@ const features = [
   },
   {
     icon: <MicrophoneIcon />,
-    title: "AI Phân tích chuyên sâu",
+    title: "Hệ thống phân tích chuyên sâu",
     description:
-      "Công nghệ AI độc quyền giúp tinh chỉnh từng âm tiết và ngữ điệu.",
+      "Hệ thống phân tích chuyên sâu giúp tinh chỉnh từng âm tiết và ngữ điệu.",
   },
   {
     icon: <ChartIcon />,
@@ -126,13 +126,13 @@ const detailedFeatures = [
     tags: ["Độc quyền", "Tư duy 4 đỉnh", "Kéo thả trực quan"],
   },
   {
-    title: "Hệ sinh thái Phân tích AI",
+    title: "Hệ sinh thái phân tích thông minh",
     subtitle: "Thấu hiểu sâu sắc từng tầng ngôn ngữ",
     description:
-      "Sức mạnh của công nghệ AI nằm ngay trong tầm tay bạn. Hệ thống đánh giá phát âm (Pronunciation), luyện Shadowing chuẩn xác, tích hợp phiên âm IPA và giải thích từ vựng thông minh giúp bạn không chỉ học nhanh hơn mà còn cảm thụ ngôn ngữ một cách tinh tế.",
+      "Hệ thống đánh giá phát âm (Pronunciation) thông minh nằm ngay trong tầm tay bạn. Công cụ luyện Shadowing chuẩn xác, tích hợp phiên âm IPA và giải thích từ vựng giúp bạn không chỉ học nhanh hơn mà còn cảm thụ ngôn ngữ một cách tinh tế.",
     image: "/features/smart-tools.png",
     reverse: true,
-    tags: ["AI Pronunciation", "Smart Shadowing", "IPA Analysis"],
+    tags: ["Pronunciation", "Smart Shadowing", "IPA Analysis"],
   },
 ];
 

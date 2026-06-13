@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
 
             <p className="text-lg text-slate-500 mb-8 max-w-[600px] leading-relaxed">
               Khai phóng tiềm năng ngôn ngữ với FongFluency. Phương pháp học
-              tương tác kết hợp AI phân tích chuyên sâu giúp bạn đạt được sự
+              tương tác kết hợp hệ thống phân tích chuyên sâu giúp bạn đạt được sự
               trôi chảy vượt bậc một cách tự nhiên.
             </p>
 
@@ -84,7 +84,7 @@ const HeroSection: React.FC = () => {
           <div className="hidden md:block">
             <Image
               src="/hero_illustration.png"
-              alt="Học tiếng Anh với công nghệ AI vượt trội"
+              alt="Học tiếng Anh với công nghệ vượt trội"
               width={600}
               height={600}
               className="w-full max-w-[600px] h-auto rounded-3xl shadow-2xl transition-transform duration-500 hover:scale-[1.05] hover:shadow-[0_40px_80px_rgba(0,0,0,0.25)]"
