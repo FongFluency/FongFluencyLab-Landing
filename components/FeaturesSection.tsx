@@ -36,7 +36,7 @@ const MicrophoneIcon = () => (
   </svg>
 );
 
-const ChartIcon = () => (
+const BookOpenIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className="w-8 h-8"
@@ -48,12 +48,12 @@ const ChartIcon = () => (
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
+      d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
     />
   </svg>
 );
 
-const UsersIcon = () => (
+const LightbulbIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className="w-8 h-8"
@@ -65,7 +65,7 @@ const UsersIcon = () => (
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
+      d="M12 18h.01M8 21h8a2 2 0 002-2h-12a2 2 0 002 2zM12 2a7 7 0 00-7 7c0 2.38 1.19 4.47 3 5.74V17h8v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 00-7-7z"
     />
   </svg>
 );
@@ -79,21 +79,21 @@ const features = [
   },
   {
     icon: <MicrophoneIcon />,
-    title: "Hệ thống phân tích chuyên sâu",
+    title: "Phát âm & Luyện nói chuyên sâu",
     description:
-      "Hệ thống phân tích chuyên sâu giúp tinh chỉnh từng âm tiết và ngữ điệu.",
+      "Hệ thống phân tích chuẩn IPA giúp tinh chỉnh từng âm tiết, nhịp điệu và tốc độ.",
   },
   {
-    icon: <ChartIcon />,
-    title: "Định hướng mục tiêu",
+    icon: <BookOpenIcon />,
+    title: "Ngữ pháp thông minh",
     description:
-      "Minh bạch tiến độ, rõ ràng lộ trình để bạn luôn tràn đầy động lực.",
+      "Tự động lồng ghép cấu trúc học thuật vào câu trả lời để sinh bài tập thích ứng.",
   },
   {
-    icon: <UsersIcon />,
-    title: "Tư duy ngôn ngữ",
+    icon: <LightbulbIcon />,
+    title: "Kho Từ vựng & Ý tưởng",
     description:
-      "Không chỉ là học vẹt, chúng tôi giúp bạn xây dựng tư duy tiếng Anh tự nhiên.",
+      "Tìm kiếm Collocations, Phrases đắt giá kèm ví dụ trực quan cho mọi câu hỏi IELTS.",
   },
 ];
 
@@ -108,15 +108,6 @@ const detailedFeatures = [
     tags: ["Part 1, 2, 3", "Cá nhân hóa", "Phản xạ tự nhiên"],
   },
   {
-    title: "Khai phá Tiềm năng Riêng biệt",
-    subtitle: "Lối đi riêng cho tư duy của chính bạn",
-    description:
-      "Bạn muốn làm chủ từ vựng theo từng chủ đề (Topic) hay nắm vững cấu trúc cho từng loại câu hỏi (Question Type)? Tại FongFluency, chúng tôi không bắt bạn học vẹt. Bạn chính là người kiến tạo lộ trình học tập tối ưu nhất, phù hợp nhất với thế mạnh của mình.",
-    image: "/features/methods.png",
-    reverse: false,
-    tags: ["Học theo Topic", "Học theo Dạng câu hỏi", "Linh hoạt"],
-  },
-  {
     title: "Tuyệt kỹ Phương Pháp 'Timeline 4 Đỉnh'",
     subtitle: "Kiến tạo tư duy nói mạch lạc chưa từng có",
     description:
@@ -126,13 +117,31 @@ const detailedFeatures = [
     tags: ["Độc quyền", "Tư duy 4 đỉnh", "Kéo thả trực quan"],
   },
   {
-    title: "Hệ sinh thái phân tích thông minh",
+    title: "Thư viện Ngữ pháp Học thuật & Luyện đề",
+    subtitle: "Tích hợp cấu trúc band điểm tự động",
+    description:
+      "Học lý thuyết kết hợp thực hành thông minh. Hệ thống tự động phân tích câu hỏi IELTS Speaking đã chọn để lồng ghép các cấu trúc ngữ pháp nâng cao theo band điểm mục tiêu, từ đó xây dựng các bài tập viết lại câu và dịch thuật cá nhân hóa dành riêng cho bạn.",
+    image: "/features/grammar-library.png",
+    reverse: true,
+    tags: ["Ngữ pháp theo Band", "Sinh bài tập tự động", "Luyện viết câu"],
+  },
+  {
+    title: "Hệ sinh thái Đánh giá phát âm & Luyện nói",
     subtitle: "Thấu hiểu sâu sắc từng tầng ngôn ngữ",
     description:
-      "Hệ thống đánh giá phát âm (Pronunciation) thông minh nằm ngay trong tầm tay bạn. Công cụ luyện Shadowing chuẩn xác, tích hợp phiên âm IPA và giải thích từ vựng giúp bạn không chỉ học nhanh hơn mà còn cảm thụ ngôn ngữ một cách tinh tế.",
+      "Chấm điểm phát âm chính xác nhờ công nghệ chuẩn IPA phân tích chi tiết tới từng âm tiết (phonemes). Theo dõi độ trôi chảy (Fluency), độ hoàn thiện (Completeness), kết hợp phương pháp luyện nói Shadowing và giải thích nghĩa, phiên âm từ vựng đắt giá.",
     image: "/features/smart-tools.png",
-    reverse: true,
+    reverse: false,
     tags: ["Pronunciation", "Smart Shadowing", "IPA Analysis"],
+  },
+  {
+    title: "Kho Từ vựng & Ý tưởng Đắt giá (Vocabulary & Ideas)",
+    subtitle: "Luôn dồi dào ý tưởng cho mọi chủ đề",
+    description:
+      "Không còn lo lắng việc bí ý tưởng khi bước vào phòng thi. Hàng trăm chủ đề IELTS Speaking thực tế được phân tích sẵn để gợi ý cho bạn các Collocations, cụm từ đắt giá đi kèm ví dụ sử dụng chi tiết và các ý tưởng mẫu đầy đủ đạt điểm số ấn tượng.",
+    image: "/features/vocab-ideas.png",
+    reverse: true,
+    tags: ["Collocations & Phrases", "Ý tưởng mẫu", "IELTS Forecast"],
   },
 ];
 
